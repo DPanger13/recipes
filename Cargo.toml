@@ -1,5 +1,5 @@
 [package]
-name = "untitled1"
+name = "analytics"
 version = "0.1.0"
 authors = ["Derek Panger <12522587+DPanger13@users.noreply.github.com>"]
 edition = "2018"
