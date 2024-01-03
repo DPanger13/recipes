@@ -1,0 +1,19 @@
+name: Rust
+
+on: [push]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Check Formatting
+      run: cargo fmt --check
+    - name: Check Project
+      run: cargo check
+    - name: Build Project
+      run: cargo build
