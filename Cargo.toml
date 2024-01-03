@@ -5,4 +5,15 @@ authors = ["Derek Panger <12522587+DPanger13@users.noreply.github.com>"]
 edition = "2018"
 
 [lib]
-crate-type = ["cdylib", "rlib"]
+name = "analytics"
+crate-type = ["cdylib", "staticlib"]
+
+[[bin]]
+name = "uniffi-bindgen"
+path = "src/uniffi-bindgen.rs"
+
+[dependencies]
+uniffi = { version = "0.25", features = ["cli"] }
+
+[build-dependencies]
+uniffi = { version = "0.25", features = ["build"] }
