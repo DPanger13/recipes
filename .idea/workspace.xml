@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="RunManager" selected="Cargo.check">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c2ddfe1b-f87c-49d0-8480-2a3b2bf7da01" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.appveyor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE_APACHE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE_MIT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/web.rs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="cab7ebcy" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cargo.build.executor": "Run",
+    "Cargo.check.executor": "Run",
+    "git-widget-placeholder": "trunk",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Cargo.build">
     <configuration name="Test analytics" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="test --workspace" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -54,9 +91,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo.check" />
         <item itemvalue="Cargo.build" />
+        <item itemvalue="Cargo.check" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="TaskManager">
+    <servers />
   </component>
 </project>
