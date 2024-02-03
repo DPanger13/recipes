@@ -1,11 +1,11 @@
 [package]
-name = "analytics"
+name = "vehicles"
 version = "0.1.0"
 authors = ["Derek Panger <12522587+DPanger13@users.noreply.github.com>"]
 edition = "2018"
 
 [lib]
-name = "analytics"
+name = "vehicles"
 crate-type = ["cdylib", "staticlib"]
 
 [[bin]]
