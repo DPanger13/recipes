@@ -1,5 +1,5 @@
-use serde::Deserialize;
 use crate::api::VEHICLES_API;
+use serde::Deserialize;
 
 #[derive(Deserialize)]
 pub struct MakesResponse {
