@@ -2,7 +2,7 @@
 name = "vehicles"
 version = "0.1.0"
 authors = ["Derek Panger <12522587+DPanger13@users.noreply.github.com>"]
-edition = "2018"
+edition = "2021"
 
 [lib]
 name = "vehicles"
@@ -13,7 +13,7 @@ name = "uniffi-bindgen"
 path = "src/uniffi-bindgen.rs"
 
 [dependencies]
-reqwest = { version = "0.11", features = ["blocking", "json"] }
+reqwest = { version = "0.11", default-features = false, features = ["blocking", "json", "rustls-tls"] }
 uniffi = { version = "0.25", features = ["cli"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = { version = "1.0" }

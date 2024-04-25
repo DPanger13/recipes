@@ -10,11 +10,8 @@ pub struct Make {
 
 #[uniffi::export]
 pub fn makes(id: String) -> Result<Vec<Make>, VehiclesError> {
-    let result = fetch_makes(id);
-    match result {
-        Ok(response) => Ok(create_makes(response)),
-        Err(_) => Err(VehiclesError::Fetch),
-    }
+    let result = fetch_makes(id)?;
+    Ok(create_makes(result))
 }
 
 fn create_makes(response: MakesResponse) -> Vec<Make> {
