@@ -10,10 +10,10 @@ pub struct ManufacturersResponse {
 #[derive(Deserialize)]
 pub struct ManufacturerResponse {
     #[serde(rename(deserialize = "Mfr_ID"))]
-    pub id: String,
+    pub id: u64,
 
     #[serde(rename(deserialize = "Mfr_CommonName"))]
-    pub name: String,
+    pub name: Option<String>,
 }
 
 pub fn fetch_manufacturers() -> reqwest::Result<ManufacturersResponse> {

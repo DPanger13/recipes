@@ -19,9 +19,19 @@ fn create_manufacturers(response: ManufacturersResponse) -> Vec<Manufacturer> {
     response
         .manufacturers
         .iter()
-        .map(|manufacturer| Manufacturer {
-            id: manufacturer.id.to_owned(),
-            name: manufacturer.name.to_owned(),
+        .map(|manufacturer| {
+            let name = match &manufacturer.name {
+                None => {
+                    "Unknown".to_string()
+                }
+                Some(name) => {
+                    name.to_string()
+                }
+            };
+            Manufacturer {
+                id: manufacturer.id.to_string(),
+                name: name.to_owned(),
+            }
         })
         .collect()
 }
