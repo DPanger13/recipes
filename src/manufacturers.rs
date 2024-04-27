@@ -21,12 +21,8 @@ fn create_manufacturers(response: ManufacturersResponse) -> Vec<Manufacturer> {
         .iter()
         .map(|manufacturer| {
             let name = match &manufacturer.name {
-                None => {
-                    "Unknown".to_string()
-                }
-                Some(name) => {
-                    name.to_string()
-                }
+                None => "Unknown".to_string(),
+                Some(name) => name.to_string(),
             };
             Manufacturer {
                 id: manufacturer.id.to_string(),
