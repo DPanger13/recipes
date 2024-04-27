@@ -5,26 +5,29 @@ mod api;
 
 #[derive(uniffi::Record)]
 pub struct Manufacturer {
-    id: String,
-    name: String,
+    pub id: String,
+    pub name: String,
 }
 
 #[uniffi::export]
 pub fn manufacturers() -> Result<Vec<Manufacturer>, VehiclesError> {
-    let result = fetch_manufacturers();
-    match result {
-        Ok(response) => Ok(create_manufacturers(response)),
-        Err(_) => Err(VehiclesError::Fetch),
-    }
+    let result = fetch_manufacturers()?;
+    Ok(create_manufacturers(result))
 }
 
 fn create_manufacturers(response: ManufacturersResponse) -> Vec<Manufacturer> {
     response
         .manufacturers
         .iter()
-        .map(|manufacturer| Manufacturer {
-            id: manufacturer.id.to_owned(),
-            name: manufacturer.name.to_owned(),
+        .map(|manufacturer| {
+            let name = match &manufacturer.name {
+                None => "Unknown".to_string(),
+                Some(name) => name.to_string(),
+            };
+            Manufacturer {
+                id: manufacturer.id.to_string(),
+                name: name.to_owned(),
+            }
         })
         .collect()
 }
