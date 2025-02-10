@@ -1,5 +1,7 @@
 use crate::error::VehiclesError;
-use crate::manufacturers::api::{fetch_manufacturers, ManufacturersResponse};
+use crate::manufacturers::api::{
+    fetch_manufacturers, fetch_manufacturers_by_name, ManufacturersResponse,
+};
 
 mod api;
 
@@ -12,6 +14,12 @@ pub struct Manufacturer {
 #[uniffi::export]
 pub fn manufacturers() -> Result<Vec<Manufacturer>, VehiclesError> {
     let result = fetch_manufacturers()?;
+    Ok(create_manufacturers(result))
+}
+
+#[uniffi::export]
+pub fn search_manufacturers(name: String) -> Result<Vec<Manufacturer>, VehiclesError> {
+    let result = fetch_manufacturers_by_name(name)?;
     Ok(create_manufacturers(result))
 }
 
