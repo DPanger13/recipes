@@ -6,21 +6,37 @@ use crate::manufacturers::api::{
 mod api;
 
 #[derive(uniffi::Record)]
+pub struct Manufacturers {
+    pub manufacturers: Vec<Manufacturer>,
+    pub has_more: bool,
+}
+
+#[derive(uniffi::Record)]
 pub struct Manufacturer {
     pub id: String,
     pub name: String,
 }
 
 #[uniffi::export]
-pub fn manufacturers() -> Result<Vec<Manufacturer>, VehiclesError> {
-    let result = fetch_manufacturers()?;
-    Ok(create_manufacturers(result))
+pub fn manufacturers(page: i32) -> Result<Manufacturers, VehiclesError> {
+    let result = fetch_manufacturers(page)?;
+    let manufacturers = create_manufacturers(result);
+    let has_more = manufacturers.len() == 100;
+    Ok(Manufacturers {
+        manufacturers,
+        has_more,
+    })
 }
 
 #[uniffi::export]
-pub fn search_manufacturers(name: String) -> Result<Vec<Manufacturer>, VehiclesError> {
-    let result = fetch_manufacturers_by_name(name)?;
-    Ok(create_manufacturers(result))
+pub fn search_manufacturers(name: String, page: i32) -> Result<Manufacturers, VehiclesError> {
+    let result = fetch_manufacturers_by_name(name, page)?;
+    let manufacturers = create_manufacturers(result);
+    let has_more = manufacturers.len() == 100;
+    Ok(Manufacturers {
+        manufacturers,
+        has_more,
+    })
 }
 
 fn create_manufacturers(response: ManufacturersResponse) -> Vec<Manufacturer> {
